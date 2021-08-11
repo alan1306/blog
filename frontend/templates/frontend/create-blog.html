@@ -1,0 +1,20 @@
+{% extends "frontend/home.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% load static%}
+    <body onload="captcha()">
+    <div class="content-section">
+        <form method="POST" action="/api/create-blog">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Create a blog</legend>
+                {{ form|crispy}}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" id="createButton">create</button>
+            </div>
+            </form>
+
+    </div>
+    </body>
+{% endblock content %}

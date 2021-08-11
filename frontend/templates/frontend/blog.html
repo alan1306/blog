@@ -1,0 +1,23 @@
+{% extends "frontend/home.html" %}
+{% load static %}
+{% block content %}
+    {% for post in posts %}
+        <article class="media content-section">
+          <div class="media-body">
+            <h2><a class="article-title" >{{ post.title }}    </a>
+            {%if post.public is False%}
+            <img src="{% static 'frontend/images/private.png' %}" width="20px"/>
+            {% else %}
+            <img src="{% static 'frontend/images/public.png' %}" width="20px"/>
+            {% endif %}
+            </h2>
+            <p class="article-content">{{ post.content }}</p>
+          </div>
+        </article>
+    {% endfor %}
+    <div class="form-group">
+    <form method="GET" action="/api/create-blog">
+    <button class="btn btn-outline-info" id="createBlog">Create</button>
+    </form>
+    </div>
+{% endblock content %}

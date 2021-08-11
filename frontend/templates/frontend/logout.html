@@ -1,0 +1,9 @@
+{% extends "frontend/home.html" %}
+{% comment %} {% block content %}
+{% load static%}
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Do not  Have An Account? <a class="ml-2" href="{% url 'frontend:register' %}">Sign Up</a>
+            </small> 
+        </div>
+{% endblock content %} {% endcomment %}
