@@ -28,7 +28,7 @@ def createBlog(request):
         form=PostForm()
         return render(request,'frontend/create-blog.html',{'form':form})
     else:
-        form=PostForm(request.POST)
+        form=PostForm(request.POST,request.FILES)
         if form.is_valid():
             instance=form.save(commit=False)
             instance.author=request.user

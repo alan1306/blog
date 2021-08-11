@@ -20,6 +20,5 @@ def register(request):
 @login_required
 def blog(request):
     posts=Post.objects.filter(author=request.user)
-    print(posts)
     return render(request,'frontend/blog.html',{'posts':posts})
         
